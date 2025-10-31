@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
+
+:root {
+  --cor-fundo: #f8f7f2; 
+  --cor-texto: #212529;
+  --cor-primaria: #343a40;
+  --cor-card: #ffffff;
+  --cor-borda: #dee2e6;
+  
+  --sidebar-bg: #222e3c; 
+  --sidebar-text: #adb5bd;
+  --sidebar-text-hover: #ffffff;
+  --sidebar-width: 280px;
+  
+  --scrollbar-thumb: #555;
+}
+
+body {
+  font-family: 'Inter', Arial, sans-serif;
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto);
+  line-height: 1.6;
+}
+
+
+.wrapper {
+  width: 100%;
+  min-height: 100vh;
+  position: relative; 
+  overflow-x: hidden; 
+}
+
+.sidebar {
+  width: var(--sidebar-width);
+  min-width: var(--sidebar-width);
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1030; 
+  background: var(--sidebar-bg);
+  color: var(--sidebar-text);
+  transition: all 0.3s ease;
+  overflow-y: auto;
+  margin-left: calc(-1 * var(--sidebar-width));
+  
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-thumb) var(--sidebar-bg);
+}
+.sidebar.active {
+  margin-left: 0;
+}
+
+.sidebar::-webkit-scrollbar {
+  width: 8px;
+}
+.sidebar::-webkit-scrollbar-track {
+  background: var(--sidebar-bg);
+}
+.sidebar::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-thumb);
+  border-radius: 10px;
+  border: 2px solid var(--sidebar-bg);
+}
+
+.sidebar .components {
+  padding: 20px 0;
+}
+.sidebar .sidebar-link {
+  display: block;
+  padding: 15px 25px;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--sidebar-text);
+  transition: all 0.2s ease;
+}
+.sidebar .sidebar-link:hover {
+  background: var(--cor-primaria);
+  color: var(--sidebar-text-hover);
+}
+
+.sidebar ul ul {
+  padding-left: 1.5rem;
+  background: rgba(0, 0, 0, 0.2);
+}
+.sidebar ul ul a.dropdown-item {
+  padding: 10px 25px;
+  font-size: 0.95rem;
+  color: var(--sidebar-text);
+  
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.sidebar ul ul a.dropdown-item:hover {
+  background-color: transparent;
+  color: var(--sidebar-text-hover);
+}
+
+.main-content {
+  min-height: 100vh;
+  transition: all 0.3s ease;
+  padding-left: 0;
+}
+.main-content.active {
+  padding-left: var(--sidebar-width);
+}
+
+
+#sidebarCollapse {
+  font-size: 1.5rem;
+  margin-right: 15px; 
+}
+.navbar-brand {
+  flex-grow: 1; 
+}
+.navbar-toggler {
+  margin-left: 10px;
+}
+
+
+.navbar-nav .nav-link.active {
+  font-weight: 700;
+  color: #ffffff !important;
+}
+
+.carousel-img {
+  height: 450px;
+  object-fit: cover;
+  filter: brightness(0.7);
+  border-radius: 0.5rem;
+}
+
+.card {
+  background-color: var(--cor-card);
+  border: 1px solid var(--cor-borda);
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+}
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08) !important;
+}
+.card-img-top {
+  height: 220px;
+  object-fit: cover;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+}
+.card-footer {
+  background-color: var(--cor-card) !important;
+}
+
+#detalhes-item .list-group-item {
+  background-color: transparent;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+@media (max-width: 992px) {
+  .main-content.active {
+    padding-left: 0;
+  }
+}
