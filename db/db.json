@@ -245,6 +245,19 @@
         }
       ],
       "id": 18
+    },
+    {
+      "nome": "Leall",
+      "descricao": "Rapper carioca",
+      "conteudo": "Artista do underground, mas que vem se provando cada vez mais na mainstream.",
+      "categoria": "Rap Nacional",
+      "origem": "Rio de Janeiro, BR",
+      "anos_atividade": "2019-presente",
+      "gravadora": "Rock Danger",
+      "imagem_principal": "https://picsum.photos/id/252/1200/500",
+      "destaque": false,
+      "albuns": [],
+      "id": 19
     }
   ],
   "albunsDestaque": [

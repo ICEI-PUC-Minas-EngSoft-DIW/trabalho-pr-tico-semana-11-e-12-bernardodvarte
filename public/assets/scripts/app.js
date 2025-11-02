@@ -1,169 +1,27 @@
-const dados = {
-  "artistas": [
-    {
-      "id": 1,
-      "nome": "Kendrick Lamar",
-      "descricao": "Rapper e compositor vencedor do Pulitzer, de Compton, CA.",
-      "conteudo": "Kendrick Lamar é aclamado por suas letras profundas, narrativas complexas e fusão de gêneros como jazz, funk e soul em seu som. Seus álbuns são frequentemente citados como clássicos modernos, abordando temas como identidade racial, crítica social e crescimento pessoal.",
-      "categoria": "Rap Internacional",
-      "origem": "Compton, EUA",
-      "destaque": true,
-      "anos_atividade": "2004-presente", 
-      "gravadora": "TDE, Aftermath",   
-      "imagem_principal": "https://picsum.photos/id/103/1200/500",
-      "albuns": [
-        { "id": 1, "nome": "good kid, m.A.A.d city", "ano": 2012, "imagem": "https://picsum.photos/id/111/400/400" },
-        { "id": 2, "nome": "To Pimp a Butterfly", "ano": 2015, "imagem": "https://picsum.photos/id/121/400/400" },
-        { "id": 3, "nome": "DAMN.", "ano": 2017, "imagem": "https://picsum.photos/id/129/400/400" }
-      ]
-    },
-    {
-      "id": 2,
-      "nome": "Djonga",
-      "descricao": "Uma das vozes mais potentes e influentes do rap nacional.",
-      "conteudo": "Original de Belo Horizonte, Djonga ganhou notoriedade por suas letras afiadas, performances energéticas e uma sequência de álbuns aclamados. Ele é conhecido por abordar pautas sociais, raciais e a realidade brasileira com uma perspectiva única e contundente.",
-      "categoria": "Rap Nacional",
-      "origem": "Belo Horizonte, BR",
-      "destaque": true,
-      "anos_atividade": "2015-presente", 
-      "gravadora": "Ceia, Som Livre",  
-      "imagem_principal": "https://picsum.photos/id/117/1200/500",
-      "albuns": [
-        { "id": 1, "nome": "Heresia", "ano": 2017, "imagem": "https://picsum.photos/id/145/400/400" },
-        { "id": 2, "nome": "O Menino que Queria ser Deus", "ano": 2018, "imagem": "https://picsum.photos/id/160/400/400" },
-        { "id": 3, "nome": "Ladrão", "ano": 2019, "imagem": "https://picsum.photos/id/163/400/400" }
-      ]
-    },
-    {
-      "id": 4,
-      "nome": "BK'",
-      "descricao": "Rapper carioca conhecido por suas letras poéticas e flow marcante.",
-      "conteudo": "Líder do grupo Nectar Gang, BK' consolidou sua carreira solo com álbuns que são verdadeiros retratos geracionais. Suas músicas exploram a vida no Rio de Janeiro, ambição, relacionamentos e questões existenciais, com uma produção sonora sofisticada.",
-      "categoria": "Rap Nacional",
-      "origem": "Rio de Janeiro, BR",
-      "destaque": false,
-      "anos_atividade": "2015-presente",
-      "gravadora": "Pirâmide Perdida",  
-      "imagem_principal": "https://picsum.photos/id/1062/1200/500",
-      "albuns": [
-        { "id": 1, "nome": "Castelos & Ruínas", "ano": 2016, "imagem": "https://picsum.photos/id/183/400/400" },
-        { "id": 2, "nome": "O Líder em Movimento", "ano": 2020, "imagem": "https://picsum.photos/id/191/400/400" }
-      ]
-    },
-    {
-      "id": 7,
-      "nome": "Filipe Ret",
-      "descricao": "Rapper carioca, um dos maiores nomes do trap nacional.",
-      "conteudo": "Filipe Ret é conhecido por seu estilo de vida 'vivido', letras sobre superação e uma sonoridade que mescla rap com funk. É um fenômeno de popularidade, com álbuns que batem recordes de streaming.",
-      "categoria": "Rap Nacional",
-      "origem": "Rio de Janeiro, BR",
-      "destaque": true,
-      "anos_atividade": "2009-presente", 
-      "gravadora": "Nadamal, Som Livre",   
-      "imagem_principal": "https://picsum.photos/id/234/1200/500",
-      "albuns": [
-        { "id": 1, "nome": "Vivaz", "ano": 2012, "imagem": "https://picsum.photos/id/235/400/400" },
-        { "id": 2, "nome": "Revel", "ano": 2015, "imagem": "https://picsum.photos/id/236/400/400" }
-      ]
-    },
-    {
-      "id": 8,
-      "nome": "Leall",
-      "descricao": "Rapper carioca conhecido pelas crônicas afiadas do cotidiano.",
-      "conteudo": "Leall se destaca por sua narrativa cinematográfica e letras que retratam a realidade das favelas do Rio de Janeiro. Seu álbum 'Esculpido a Machado' foi aclamado pela crítica.",
-      "categoria": "Rap Nacional",
-      "origem": "Rio de Janeiro, BR",
-      "destaque": false,
-      "anos_atividade": "2018-presente", 
-      "gravadora": "Rock Danger",   
-      "imagem_principal": "https://picsum.photos/id/238/1200/500",
-      "albuns": [
-        { "id": 1, "nome": "Esculpido a Machado", "ano": 2021, "imagem": "https://picsum.photos/id/239/400/400" }
-      ]
-    },
-    {
-      "id": 11,
-      "nome": "Tupac Shakur",
-      "descricao": "Lenda icônica e poeta do rap da Costa Oeste.",
-      "conteudo": "2Pac é uma das figuras mais reverenciadas da história do hip-hop. Suas letras sobre desigualdade social, violência e esperança, combinadas com sua personalidade carismática, o tornaram um mártir cultural.",
-      "categoria": "Rap Internacional",
-      "origem": "Nova Iorque, EUA",
-      "destaque": false,
-      "anos_atividade": "1989-1996",     
-      "gravadora": "Interscope, Death Row", 
-      "imagem_principal": "https://picsum.photos/id/248/1200/500",
-      "albuns": [
-        { "id": 1, "nome": "All Eyez on Me", "ano": 1996, "imagem": "https://picsum.photos/id/249/400/400" },
-        { "id": 2, "nome": "Me Against the World", "ano": 1995, "imagem": "https://picsum.photos/id/250/400/400" }
-      ]
-    },
-    {
-      "id": 12,
-      "nome": "Kanye West",
-      "descricao": "Produtor e rapper visionário e controverso de Chicago.",
-      "conteudo": "Kanye West (Ye) moldou o som do hip-hop por décadas. De 'The College Dropout' a 'My Beautiful Dark Twisted Fantasy', sua discografia é marcada por inovação, ego e uma produção musical inigualável.",
-      "categoria": "Rap Internacional",
-      "origem": "Chicago, EUA",
-      "destaque": true,
-      "anos_atividade": "1996-presente",     
-      "gravadora": "Roc-A-Fella, GOOD Music", 
-      "imagem_principal": "https://picsum.photos/id/251/1200/500",
-      "albuns": [
-        { "id": 1, "nome": "MBDTF", "ano": 2010, "imagem": "https://picsum.photos/id/252/400/400" },
-        { "id": 2, "nome": "The College Dropout", "ano": 2004, "imagem": "https://picsum.photos/id/253/400/400" }
-      ]
-    },
-    {
-      "id": 14,
-      "nome": "Drake",
-      "descricao": "Superastro global de Toronto que define tendências.",
-      "conteudo": "Drake é inegavelmente o artista mais dominante comercialmente da era do streaming. Ele mescla rap com pop e R&B, criando hits que definem a cultura popular ano após ano.",
-      "categoria": "Rap Internacional",
-      "origem": "Toronto, CAN",
-      "destaque": true,
-      "anos_atividade": "2006-presente",     
-      "gravadora": "OVO Sound, Republic",
-      "imagem_principal": "https://picsum.photos/id/257/1200/500",
-      "albuns": [
-        { "id": 1, "nome": "Take Care", "ano": 2011, "imagem": "https://picsum.photos/id/258/400/400" },
-        { "id": 2, "nome": "Nothing Was the Same", "ano": 2013, "imagem": "https://picsum.photos/id/259/400/400" }
-      ]
-    },
-    {
-      "id": 17,
-      "nome": "Travis Scott",
-      "descricao": "Artista de Houston conhecido por sua energia e produção.",
-      "conteudo": "Travis Scott é famoso por seus shows caóticos e álbuns super produzidos como 'Astroworld' e 'Utopia'. Ele é uma força cultural, influenciando música, moda e até mesmo o mundo dos games.",
-      "categoria": "Rap Internacional",
-      "origem": "Houston, EUA",
-      "destaque": true,
-      "anos_atividade": "2013-presente",     
-      "gravadora": "Cactus Jack, Epic", 
-      "imagem_principal": "https://picsum.photos/id/263/1200/500",
-      "albuns": [
-        { "id": 1, "nome": "UTOPIA", "ano": 2023, "imagem": "https://picsum.photos/id/26/400/400" },
-        { "id": 2, "nome": "ASTROWORLD", "ano": 2018, "imagem": "https://picsum.photos/id/264/400/400" },
-        { "id": 3, "nome": "Birds in the Trap Sing McKnight", "ano": 2016, "imagem": "https://picsum.photos/id/265/400/400" }
-      ]
+const BASE_URL = 'http://localhost:3000';
+
+async function fetchData(endpoint) {
+  try {
+    const response = await fetch(`${BASE_URL}/${endpoint}`);
+    if (!response.ok) {
+      throw new Error(`Erro HTTP: ${response.status}`);
     }
-  ],
-  "albunsDestaque": [
-    { "id": 1, "nome": "good kid, m.A.A.d city", "artista": "Kendrick Lamar", "ano": 2012, "imagem": "https://picsum.photos/id/111/400/400", "artistaId": 1 },
-    { "id": 2, "nome": "Heresia", "artista": "Djonga", "ano": 2017, "imagem": "https://picsum.photos/id/145/400/400", "artistaId": 2 },
-    { "id": 3, "nome": "Castelos & Ruínas", "artista": "BK'", "ano": 2016, "imagem": "https://picsum.photos/id/183/400/400", "artistaId": 4 },
-    { "id": 4, "nome": "Vivaz", "artista": "Filipe Ret", "ano": 2012, "imagem": "https://picsum.photos/id/236/400/400", "artistaId": 7 },
-    { "id": 5, "nome": "Esculpido a Machado", "artista": "Leall", "ano": 2021, "imagem": "https://picsum.photos/id/239/400/400", "artistaId": 8 },
-    { "id": 6, "nome": "All Eyez on Me", "artista": "Tupac Shakur", "ano": 1996, "imagem": "https://picsum.photos/id/249/400/400", "artistaId": 11 },
-    { "id": 7, "nome": "MBDTF", "artista": "Kanye West", "ano": 2010, "imagem": "https://picsum.photos/id/252/400/400", "artistaId": 12 },
-    { "id": 9, "nome": "Take Care", "artista": "Drake", "ano": 2011, "imagem": "https://picsum.photos/id/258/400/400", "artistaId": 14 },
-    { "id": 11, "nome": "ASTROWORLD", "artista": "Travis Scott", "ano": 2018, "imagem": "https://picsum.photos/id/26/400/400", "artistaId": 17 }
-  ]
-};
+    return await response.json();
+  } catch (error) {
+    console.error(`Falha ao buscar dados de ${endpoint}:`, error);
+    return []; 
+  }
+}
 
 
-function carregarSidebar() {
+async function carregarSidebar() {
   const container = document.getElementById("sidebar-nav");
   if (!container) return;
+
+  const [artistas, albuns] = await Promise.all([
+    fetchData('artistas'),
+    fetchData('albunsDestaque')
+  ]);
 
   let menuHome = `
     <li class="nav-item">
@@ -173,7 +31,7 @@ function carregarSidebar() {
     </li>
   `;
 
-  let artistasLinks = dados.artistas.map(artista => 
+  let artistasLinks = artistas.map(artista =>
     `<li><a class="dropdown-item" href="detalhes.html?id=${artista.id}">${artista.nome}</a></li>`
   ).join('');
 
@@ -183,12 +41,13 @@ function carregarSidebar() {
         <i class="bi bi-people-fill me-2"></i> Artistas
       </a>
       <ul class="collapse list-unstyled" id="menuArtistasSub">
+        <li><a class="dropdown-item fw-bold" href="cadastro_artista.html">Cadastrar Novo...</a></li>
         ${artistasLinks}
       </ul>
     </li>
   `;
 
-  let albunsLinks = dados.albunsDestaque.map(album => 
+  let albunsLinks = albuns.map(album =>
     `<li><a class="dropdown-item" href="detalhes.html?id=${album.artistaId}">${album.nome} - ${album.artista}</a></li>`
   ).join('');
 
@@ -214,14 +73,15 @@ function carregarSidebar() {
   container.innerHTML = menuHome + menuArtistas + menuAlbuns + menuContato;
 }
 
-
-
-function carregarDestaques() {
-  const artistasDestaque = dados.artistas.filter(artista => artista.destaque === true);
+async function carregarDestaques() {
   const carouselInner = document.getElementById("carousel-inner");
   const carouselIndicators = document.getElementById("carousel-indicators");
-
   if (!carouselInner || !carouselIndicators) return;
+
+  const artistasDestaque = await fetchData('artistas?destaque=true');
+
+  carouselInner.innerHTML = ''; 
+  carouselIndicators.innerHTML = ''; 
 
   artistasDestaque.forEach((artista, index) => {
     const indicator = document.createElement("button");
@@ -246,12 +106,17 @@ function carregarDestaques() {
   });
 }
 
-
-function carregarArtistas(containerId, limite) {
+async function carregarArtistas(containerId, limite) {
   const container = document.getElementById(containerId);
   if (!container) return;
 
-  const artistasParaExibir = limite ? dados.artistas.slice(0, limite) : dados.artistas;
+  let endpoint = 'artistas';
+  if (limite) {
+    endpoint += `?_limit=${limite}`;
+  }
+  
+  const artistasParaExibir = await fetchData(endpoint);
+  container.innerHTML = ''; 
 
   artistasParaExibir.forEach(artista => {
     const card = document.createElement("div");
@@ -272,16 +137,21 @@ function carregarArtistas(containerId, limite) {
   });
 }
 
-
-function carregarAlbuns(containerId, limite) {
+async function carregarAlbuns(containerId, limite) {
   const container = document.getElementById(containerId);
   if (!container) return;
 
-  const albunsParaExibir = limite ? dados.albunsDestaque.slice(0, limite) : dados.albunsDestaque;
+  let endpoint = 'albunsDestaque';
+  if (limite) {
+    endpoint += `?_limit=${limite}`;
+  }
+
+  const albunsParaExibir = await fetchData(endpoint);
+  container.innerHTML = ''; 
 
   albunsParaExibir.forEach(album => {
     const card = document.createElement("div");
-    card.className = "col-lg-3 col-md-4 col-sm-6"; 
+    card.className = "col-lg-3 col-md-4 col-sm-6";
     card.innerHTML = `
       <div class="card h-100 shadow-sm border-0 text-center">
         <img src="${album.imagem}" class="card-img-top" alt="${album.nome}">
@@ -298,18 +168,21 @@ function carregarAlbuns(containerId, limite) {
   });
 }
 
-
-
-
-function carregarDetalhes() {
+async function carregarDetalhes() {
   const container = document.getElementById("detalhes-item");
   if (!container) return;
 
   const params = new URLSearchParams(window.location.search);
   const id = parseInt(params.get("id"));
-  const artista = dados.artistas.find(a => a.id === id);
 
-  if (!artista) {
+  if (!id) {
+    container.innerHTML = "<h2 class='text-center text-danger'>ID do artista não fornecido.</h2>";
+    return;
+  }
+
+  const artista = await fetchData(`artistas/${id}`);
+
+  if (!artista || Object.keys(artista).length === 0) {
     container.innerHTML = "<h2 class='text-center text-danger'>Artista não encontrado.</h2>";
     return;
   }
@@ -339,7 +212,7 @@ function carregarDetalhes() {
     <section class="pt-5 border-top">
       <h2 class="display-6 fw-bold mb-4">Principais Trabalhos</h2>
       <div class="row g-4">
-        ${artista.albuns.map(album => `
+        ${(artista.albuns && artista.albuns.length > 0) ? artista.albuns.map(album => `
           <div class="col-md-4 col-sm-6">
             <div class="card h-100 text-center shadow-sm border-0">
               <img src="${album.imagem}" class="card-img-top" alt="${album.nome}">
@@ -349,12 +222,119 @@ function carregarDetalhes() {
               </div>
             </div>
           </div>
-        `).join('')}
+        `).join('') : '<p>Nenhum álbum cadastrado para este artista.</p>'}
       </div>
     </section>
   `;
-  
+
   container.innerHTML = secao1 + secao2;
+
+  document.getElementById("btn-editar").href = `cadastro_artista.html?id=${artista.id}`;
+  document.getElementById("btn-excluir").addEventListener('click', () => handleExcluir(artista.id));
+}
+
+
+async function preencherFormularioParaEdicao() {
+  const params = new URLSearchParams(window.location.search);
+  const id = parseInt(params.get("id"));
+
+  if (id) {
+    const artista = await fetchData(`artistas/${id}`);
+    if (artista) {
+      document.getElementById('form-titulo').textContent = `Editar Artista: ${artista.nome}`;
+      document.getElementById('nome').value = artista.nome;
+      document.getElementById('descricao').value = artista.descricao;
+      document.getElementById('conteudo').value = artista.conteudo;
+      document.getElementById('categoria').value = artista.categoria;
+      document.getElementById('origem').value = artista.origem;
+      document.getElementById('anos_atividade').value = artista.anos_atividade;
+      document.getElementById('gravadora').value = artista.gravadora;
+      document.getElementById('imagem_principal').value = artista.imagem_principal;
+      document.getElementById('destaque').checked = artista.destaque;
+    }
+  }
+}
+
+
+async function handleFormSubmit(event) {
+  event.preventDefault();
+
+  const params = new URLSearchParams(window.location.search);
+  const id = parseInt(params.get("id"));
+
+  const dadosArtista = {
+    nome: document.getElementById('nome').value,
+    descricao: document.getElementById('descricao').value,
+    conteudo: document.getElementById('conteudo').value,
+    categoria: document.getElementById('categoria').value,
+    origem: document.getElementById('origem').value,
+    anos_atividade: document.getElementById('anos_atividade').value,
+    gravadora: document.getElementById('gravadora').value,
+    imagem_principal: document.getElementById('imagem_principal').value,
+    destaque: document.getElementById('destaque').checked,
+    albuns: id ? (await fetchData(`artistas/${id}`)).albuns : [] 
+  };
+
+  let metodo = 'POST';
+  let endpoint = 'artistas';
+  if (id) {
+    metodo = 'PUT';
+    endpoint = `artistas/${id}`;
+  }
+
+  try {
+    const response = await fetch(`${BASE_URL}/${endpoint}`, {
+      method: metodo,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(dadosArtista),
+    });
+
+    if (!response.ok) {
+      throw new Error(`Erro ao salvar: ${response.statusText}`);
+    }
+
+    const artistaSalvo = await response.json();
+    
+    const feedback = document.getElementById('feedback-message');
+    feedback.textContent = `Artista ${id ? 'atualizado' : 'cadastrado'} com sucesso! Redirecionando...`;
+    feedback.className = 'alert alert-success d-block';
+
+    setTimeout(() => {
+      window.location.href = `detalhes.html?id=${artistaSalvo.id}`;
+    }, 2000);
+
+  } catch (error) {
+    console.error('Erro ao salvar artista:', error);
+    const feedback = document.getElementById('feedback-message');
+    feedback.textContent = 'Erro ao salvar artista. Tente novamente.';
+    feedback.className = 'alert alert-danger d-block';
+  }
+}
+
+
+async function handleExcluir(id) {
+  if (!confirm(`Tem certeza que deseja excluir este artista? Esta ação não pode ser desfeita.`)) {
+    return;
+  }
+
+  try {
+    const response = await fetch(`${BASE_URL}/artistas/${id}`, {
+      method: 'DELETE',
+    });
+
+    if (!response.ok) {
+      throw new Error(`Erro ao excluir: ${response.statusText}`);
+    }
+
+    alert('Artista excluído com sucesso!');
+    window.location.href = 'artistas.html';
+
+  } catch (error) {
+    console.error('Erro ao excluir artista:', error);
+    alert('Ocorreu um erro ao excluir o artista. Tente novamente.');
+  }
 }
 
 
@@ -383,22 +363,27 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-
   if (document.getElementById("lista-artistas-home")) {
     carregarDestaques();
-    carregarArtistas("lista-artistas-home", 6); 
-    carregarAlbuns("lista-albuns-home", 8);     
+    carregarArtistas("lista-artistas-home", 6);
+    carregarAlbuns("lista-albuns-home", 8);
   }
 
   if (document.getElementById("lista-todos-artistas")) {
-    carregarArtistas("lista-todos-artistas"); 
+    carregarArtistas("lista-todos-artistas");
   }
 
   if (document.getElementById("lista-todos-albuns")) {
-    carregarAlbuns("lista-todos-albuns"); 
+    carregarAlbuns("lista-todos-albuns");
   }
 
   if (document.getElementById("detalhes-item")) {
     carregarDetalhes();
+  }
+
+  const artistaForm = document.getElementById("artista-form");
+  if (artistaForm) {
+    preencherFormularioParaEdicao(); 
+    artistaForm.addEventListener('submit', handleFormSubmit); 
   }
 });
