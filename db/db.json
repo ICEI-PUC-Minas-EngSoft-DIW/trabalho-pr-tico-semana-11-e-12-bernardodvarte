@@ -1,5 +1,5 @@
 {
-  "artistas": [
+  "usuarios": [
     {
       "id": 1,
       "nome": "Kendrick Lamar",
@@ -33,16 +33,15 @@
       ]
     },
     {
-      "id": 2,
       "nome": "Djonga",
-      "descricao": "DESCRIÇÃO ATUALIZADA PELO POSTMAN.",
+      "descricao": "Artista destaque de Belo Horizonte.",
       "conteudo": "Original de Belo Horizonte, Djonga ganhou notoriedade por suas letras afiadas, performances energéticas e uma sequência de álbuns aclamados. Ele é conhecido por abordar pautas sociais, raciais e a realidade brasileira com uma perspectiva única e contundente.",
       "categoria": "Rap Nacional",
       "origem": "Belo Horizonte, BR",
-      "destaque": true,
       "anos_atividade": "2015-presente",
       "gravadora": "Ceia, Som Livre",
       "imagem_principal": "https://picsum.photos/id/117/1200/500",
+      "destaque": true,
       "albuns": [
         {
           "id": 1,
@@ -62,7 +61,8 @@
           "ano": 2019,
           "imagem": "https://picsum.photos/id/163/400/400"
         }
-      ]
+      ],
+      "id": 2
     },
     {
       "id": 4,
@@ -248,7 +248,7 @@
     },
     {
       "nome": "Leall",
-      "descricao": "Rapper carioca",
+      "descricao": "Rapper carioca.",
       "conteudo": "Artista do underground, mas que vem se provando cada vez mais na mainstream.",
       "categoria": "Rap Nacional",
       "origem": "Rio de Janeiro, BR",

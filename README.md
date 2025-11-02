@@ -6,24 +6,26 @@ Para esse projeto, além de mudarmos o JSON para o JSON Server, vamos permitir o
 
 ## Informações do trabalho
 
-- Nome:
-- Matricula:
-- Proposta de projeto escolhida:
-- Breve descrição sobre seu projeto:
+- Nome: Bernardo Duarte Medeiros de Paula
+- Matricula: 901857
+- Proposta de projeto escolhida: Pessoas e Produções (Artistas e Álbuns)
+- Breve descrição sobre seu projeto: Este site terá como objetivo apresentar ao visitante tudo sobre o mundo da música, mostrando, por exemplo, os artistas mais ouvidos do momento, álbuns com destaque e tudo que envolva o ambiente musical.
 
 **Print dos testes da API com Postman ou similar**
 
-<< COLOQUE A IMAGEM GET AQUI >>
+![GET](/public/assets/img/get-pm.png)
 
-<< COLOQUE A IMAGEM POST AQUI >>
+![POST](/public/assets/img/post-pm.png)
 
-<< COLOQUE A IMAGEM PUT AQUI >>
+![PUT](/public/assets/img/put-pm.png)
 
-<< COLOQUE A IMAGEM DELETE AQUI >>
+![DELETE](/public/assets/img/delete-pm.png)
 
 **Print da aba NETWORK com requisições Fetch/XHR POST e GET**
 
-<<  COLOQUE A IMAGEM AQUI >>
+![GET](/public/assets/img/get-nt.png)
+
+![POST](/public/assets/img/post-nt.png)
 
 ## **Orientações Gerais**
 

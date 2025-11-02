@@ -13,13 +13,30 @@ async function fetchData(endpoint) {
   }
 }
 
+function displayFlashMessage() {
+  const message = sessionStorage.getItem('flashMessage');
+  if (message) {
+    const mainElement = document.querySelector('.main-content main'); 
+    if (mainElement) {
+      const alertBox = document.createElement('div');
+      alertBox.className = 'alert alert-success alert-dismissible fade show';
+      alertBox.role = 'alert';
+      alertBox.innerHTML = `
+        ${message}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      `;
+      mainElement.prepend(alertBox);
+    }
+    sessionStorage.removeItem('flashMessage');
+  }
+}
 
 async function carregarSidebar() {
   const container = document.getElementById("sidebar-nav");
   if (!container) return;
 
-  const [artistas, albuns] = await Promise.all([
-    fetchData('artistas'),
+  const [usuarios, albuns] = await Promise.all([
+    fetchData('usuarios'), 
     fetchData('albunsDestaque')
   ]);
 
@@ -31,17 +48,16 @@ async function carregarSidebar() {
     </li>
   `;
 
-  let artistasLinks = artistas.map(artista =>
-    `<li><a class="dropdown-item" href="detalhes.html?id=${artista.id}">${artista.nome}</a></li>`
+  let artistasLinks = usuarios.map(usuario => 
+    `<li><a class="dropdown-item" href="detalhes.html?id=${usuario.id}">${usuario.nome}</a></li>`
   ).join('');
 
   let menuArtistas = `
     <li class="nav-item">
       <a href="artistas.html" data-bs-toggle="collapse" data-bs-target="#menuArtistasSub" class="sidebar-link" aria-expanded="false">
-        <i class="bi bi-people-fill me-2"></i> Artistas
+        <i class="bi bi-people-fill me-2"></i> Artistas 
       </a>
       <ul class="collapse list-unstyled" id="menuArtistasSub">
-        <li><a class="dropdown-item fw-bold" href="cadastro_artista.html">Cadastrar Novo...</a></li>
         ${artistasLinks}
       </ul>
     </li>
@@ -78,7 +94,7 @@ async function carregarDestaques() {
   const carouselIndicators = document.getElementById("carousel-indicators");
   if (!carouselInner || !carouselIndicators) return;
 
-  const artistasDestaque = await fetchData('artistas?destaque=true');
+  const artistasDestaque = await fetchData('usuarios?destaque=true'); 
 
   carouselInner.innerHTML = ''; 
   carouselIndicators.innerHTML = ''; 
@@ -110,7 +126,7 @@ async function carregarArtistas(containerId, limite) {
   const container = document.getElementById(containerId);
   if (!container) return;
 
-  let endpoint = 'artistas';
+  let endpoint = 'usuarios'; 
   if (limite) {
     endpoint += `?_limit=${limite}`;
   }
@@ -180,7 +196,7 @@ async function carregarDetalhes() {
     return;
   }
 
-  const artista = await fetchData(`artistas/${id}`);
+  const artista = await fetchData(`usuarios/${id}`); 
 
   if (!artista || Object.keys(artista).length === 0) {
     container.innerHTML = "<h2 class='text-center text-danger'>Artista não encontrado.</h2>";
@@ -226,20 +242,19 @@ async function carregarDetalhes() {
       </div>
     </section>
   `;
-
+  
   container.innerHTML = secao1 + secao2;
 
   document.getElementById("btn-editar").href = `cadastro_artista.html?id=${artista.id}`;
   document.getElementById("btn-excluir").addEventListener('click', () => handleExcluir(artista.id));
 }
 
-
 async function preencherFormularioParaEdicao() {
   const params = new URLSearchParams(window.location.search);
   const id = parseInt(params.get("id"));
 
   if (id) {
-    const artista = await fetchData(`artistas/${id}`);
+    const artista = await fetchData(`usuarios/${id}`); 
     if (artista) {
       document.getElementById('form-titulo').textContent = `Editar Artista: ${artista.nome}`;
       document.getElementById('nome').value = artista.nome;
@@ -255,9 +270,8 @@ async function preencherFormularioParaEdicao() {
   }
 }
 
-
 async function handleFormSubmit(event) {
-  event.preventDefault();
+  event.preventDefault(); 
 
   const params = new URLSearchParams(window.location.search);
   const id = parseInt(params.get("id"));
@@ -272,14 +286,14 @@ async function handleFormSubmit(event) {
     gravadora: document.getElementById('gravadora').value,
     imagem_principal: document.getElementById('imagem_principal').value,
     destaque: document.getElementById('destaque').checked,
-    albuns: id ? (await fetchData(`artistas/${id}`)).albuns : [] 
+    albuns: id ? (await fetchData(`usuarios/${id}`)).albuns : [] 
   };
 
   let metodo = 'POST';
-  let endpoint = 'artistas';
+  let endpoint = 'usuarios'; 
   if (id) {
     metodo = 'PUT';
-    endpoint = `artistas/${id}`;
+    endpoint = `usuarios/${id}`; 
   }
 
   try {
@@ -302,7 +316,7 @@ async function handleFormSubmit(event) {
     feedback.className = 'alert alert-success d-block';
 
     setTimeout(() => {
-      window.location.href = `detalhes.html?id=${artistaSalvo.id}`;
+      window.location.href = `artistas.html`; 
     }, 2000);
 
   } catch (error) {
@@ -313,30 +327,24 @@ async function handleFormSubmit(event) {
   }
 }
 
-
 async function handleExcluir(id) {
-  if (!confirm(`Tem certeza que deseja excluir este artista? Esta ação não pode ser desfeita.`)) {
-    return;
-  }
-
   try {
-    const response = await fetch(`${BASE_URL}/artistas/${id}`, {
+    const response = await fetch(`${BASE_URL}/usuarios/${id}`, { 
       method: 'DELETE',
     });
 
     if (!response.ok) {
       throw new Error(`Erro ao excluir: ${response.statusText}`);
     }
-
-    alert('Artista excluído com sucesso!');
-    window.location.href = 'artistas.html';
+    
+    sessionStorage.setItem('flashMessage', 'Artista excluído com sucesso!');
+    window.location.href = 'artistas.html'; 
 
   } catch (error) {
     console.error('Erro ao excluir artista:', error);
     alert('Ocorreu um erro ao excluir o artista. Tente novamente.');
   }
 }
-
 
 function atualizarNavAtiva() {
   const currentPage = window.location.pathname.split('/').pop();
@@ -350,8 +358,8 @@ function atualizarNavAtiva() {
   });
 }
 
-
 document.addEventListener("DOMContentLoaded", () => {
+  displayFlashMessage();
   carregarSidebar();
   atualizarNavAtiva();
 
@@ -370,11 +378,11 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   if (document.getElementById("lista-todos-artistas")) {
-    carregarArtistas("lista-todos-artistas");
+    carregarArtistas("lista-todos-artistas"); 
   }
 
   if (document.getElementById("lista-todos-albuns")) {
-    carregarAlbuns("lista-todos-albuns");
+    carregarAlbuns("lista-todos-albuns"); 
   }
 
   if (document.getElementById("detalhes-item")) {
